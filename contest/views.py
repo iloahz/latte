@@ -17,6 +17,7 @@ def AjaxHandler(request):
     soup = BeautifulSoup(data)
     contest = proto()
     contest.url = 'http://www.bnuoj.com/bnuoj/contest_show.php?cid=' + cid;
+    contest.title = soup.find(attrs={'class' : 'pagetitle'}).text.strip()
     contest.source = soup.find(attrs={'class' : 'sidebar_item'}).p.text.strip()
     problem = []
     soup = soup.find(attrs={'id' : 'cplist'})
