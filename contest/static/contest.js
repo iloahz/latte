@@ -17,8 +17,9 @@ function init(){
 }
 
 function submit(){
-    var cid = $("#id").val();
-    $.post("/ajax", {"cid" : cid}, function(data){
+    var oj = $("#oj").val();
+    var cid = $("#cid").val();
+    $.post("/ajax", {"oj" : oj, "cid" : cid}, function(data){
         $("#output textarea").val(data);
     });
 }

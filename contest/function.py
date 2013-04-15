@@ -5,5 +5,9 @@ class proto():
 
 def fetch(url):
     while True:
-        res = urllib2.urlopen(url, timeout=5000)
-        return res
+        try:
+            req = urllib2.Request(url)
+            res = urllib2.urlopen(req, timeout=10000).read()
+            return res
+        except:
+            pass
